@@ -33,9 +33,10 @@ const letterSchema = new mongoose.Schema(
     mood: {
       type: String,
       enum: {
-        values: ['☺️', '😢', '😰', '🤩', '🙏', '😫'],
+        values: ['', '☺️', '😢', '😰', '🤩', '🙏', '😫'],
         message: '{VALUE} is not a valid mood'
-      }
+      },
+      required: false
     },
     weather: {
       type: String,
