@@ -77,7 +77,7 @@ const letterSchema = new mongoose.Schema(
     deliveryInterval: {
       type: String,
       enum: ['1week', '2weeks', '1month', '6months', '1year', '5years', 'custom'],
-      required: true
+      required: true,
     },
     deliveredAt: {
       type: Date,
