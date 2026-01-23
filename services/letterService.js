@@ -1,7 +1,14 @@
-/** letter service
+/**
+ * Letter Service
+ *
+ * This service handles the complete lifecycle of a letter:
+ * 1. A user writes a letter and chooses when to receive it
+ * 2. The letter waits until the delivery date arrives
+ * 3. Once delivered, the user can reflect on their past words
  */
 
 const Letter = require('../models/letter');
+const { DELIVERY_INTERVALS } = require('../utils/dateCalculator');
 
 /**
  * GET ALL LETTERS FOR A USER
@@ -185,10 +192,15 @@ const updateDeliveryDate = async (letterId, newDate) => {
 
 /**
  * Prepare letter data by attaching the user ID
+ * Frontend calculates deliveredAt, backend just validates and stores it
  */
 const prepareLetterData = (userId, letterData) => {
+  const { deliveredAt, deliveryInterval, ...restOfLetterData } = letterData;
+
   return {
-    ...letterData,
+    ...restOfLetterData,
+    deliveryInterval: deliveryInterval || DELIVERY_INTERVALS.CUSTOM_DATE,
+    deliveredAt: new Date(deliveredAt),
     user: userId
   };
 };
