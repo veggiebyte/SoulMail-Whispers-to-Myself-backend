@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
       milestoneOomph: { type: Boolean, default: true },
       anniversaryOomph: { type: Boolean, default: true },
       letterDeliveryOomph: { type: Boolean, default: true },
-      goalAccomplishOomph: { type: Boolean, default: true },
+      goalAccomplishedOomph: { type: Boolean, default: true },
       streakOomph: { type: Boolean, default: true }
      },
       stats: {
@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
       currentStreak: { type: Number, default: 0 },
       longestStreak: { type: Number, default: 0 },
       lastActivityDate: { type: Number, default: 0 },
-      goalsAccomplish: { type: Number, default: 0 },
+      goalsAccomplished: { type: Number, default: 0 },
     }
     }, { timestamp: true });
 
