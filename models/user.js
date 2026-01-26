@@ -38,7 +38,7 @@ const userSchema = new mongoose.Schema({
       currentStreak: { type: Number, default: 0 },
       longestStreak: { type: Number, default: 0 },
       lastActivityDate: { type: Number, default: 0 },
-      goalsCompleted: { type: Number, default: 0 },
+      goalsAccomplish: { type: Number, default: 0 },
     }
     }, { timestamp: true });
 
