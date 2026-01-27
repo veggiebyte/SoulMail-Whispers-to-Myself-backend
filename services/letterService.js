@@ -270,16 +270,11 @@ const removeLetterFromDatabase = async (letterId) => {
  * Update the delivery date of a letter
  */
 const updateDeliveryDate = async (letterId, newDate) => {
-  console.log('---UPDATE DELIVERY DATE DEBUG ---');
-  console.log(' newDate received:', newDate);
-  console.log('newDate as Date Object', new Date(newDate));
   const letter = await Letter.findById(letterId);
 
   if (!letter) {
     throw new NotFoundError('Letter not found');
   }
-  console.log('Current deliveredAt:', letter.deliveredAt);
-
   letter.deliveredAt = new Date(newDate);
 
 // console.log('New deliveredAt:', letter.deliveredAt);
